@@ -16,6 +16,12 @@
 		EFA23AA52C430A140079190D /* Logbook_1_3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA23AA42C430A140079190D /* Logbook_1_3Tests.swift */; };
 		EFA23AAF2C430A140079190D /* Logbook_1_3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA23AAE2C430A140079190D /* Logbook_1_3UITests.swift */; };
 		EFA23AB12C430A140079190D /* Logbook_1_3UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA23AB02C430A140079190D /* Logbook_1_3UITestsLaunchTests.swift */; };
+		EFA23AC92C430B130079190D /* Pairing+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA23AC52C430B130079190D /* Pairing+CoreDataClass.swift */; };
+		EFA23ACA2C430B130079190D /* Pairing+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA23AC62C430B130079190D /* Pairing+CoreDataProperties.swift */; };
+		EFA23ACB2C430B130079190D /* Flight+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA23AC72C430B130079190D /* Flight+CoreDataClass.swift */; };
+		EFA23ACC2C430B130079190D /* Flight+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA23AC82C430B130079190D /* Flight+CoreDataProperties.swift */; };
+		EFA23ACE2C4317440079190D /* LogbookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA23ACD2C4317440079190D /* LogbookView.swift */; };
+		EFA23AD02C4317C20079190D /* AddPairingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA23ACF2C4317C20079190D /* AddPairingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +54,12 @@
 		EFA23AAA2C430A140079190D /* Logbook 1.3UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Logbook 1.3UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFA23AAE2C430A140079190D /* Logbook_1_3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logbook_1_3UITests.swift; sourceTree = "<group>"; };
 		EFA23AB02C430A140079190D /* Logbook_1_3UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logbook_1_3UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EFA23AC52C430B130079190D /* Pairing+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pairing+CoreDataClass.swift"; sourceTree = "<group>"; };
+		EFA23AC62C430B130079190D /* Pairing+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pairing+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		EFA23AC72C430B130079190D /* Flight+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flight+CoreDataClass.swift"; sourceTree = "<group>"; };
+		EFA23AC82C430B130079190D /* Flight+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flight+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		EFA23ACD2C4317440079190D /* LogbookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogbookView.swift; sourceTree = "<group>"; };
+		EFA23ACF2C4317C20079190D /* AddPairingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPairingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +90,10 @@
 		EFA23A822C430A130079190D = {
 			isa = PBXGroup;
 			children = (
+				EFA23AC52C430B130079190D /* Pairing+CoreDataClass.swift */,
+				EFA23AC62C430B130079190D /* Pairing+CoreDataProperties.swift */,
+				EFA23AC72C430B130079190D /* Flight+CoreDataClass.swift */,
+				EFA23AC82C430B130079190D /* Flight+CoreDataProperties.swift */,
 				EFA23A8D2C430A130079190D /* Logbook 1.3 */,
 				EFA23AA32C430A140079190D /* Logbook 1.3Tests */,
 				EFA23AAD2C430A140079190D /* Logbook 1.3UITests */,
@@ -100,6 +116,8 @@
 			children = (
 				EFA23A8E2C430A130079190D /* Logbook_1_3App.swift */,
 				EFA23A902C430A130079190D /* ContentView.swift */,
+				EFA23ACD2C4317440079190D /* LogbookView.swift */,
+				EFA23ACF2C4317C20079190D /* AddPairingView.swift */,
 				EFA23A922C430A140079190D /* Assets.xcassets */,
 				EFA23A972C430A140079190D /* Persistence.swift */,
 				EFA23A992C430A140079190D /* Logbook_1_3.xcdatamodeld */,
@@ -267,6 +285,12 @@
 				EFA23A912C430A130079190D /* ContentView.swift in Sources */,
 				EFA23A8F2C430A130079190D /* Logbook_1_3App.swift in Sources */,
 				EFA23A9B2C430A140079190D /* Logbook_1_3.xcdatamodeld in Sources */,
+				EFA23AC92C430B130079190D /* Pairing+CoreDataClass.swift in Sources */,
+				EFA23ACA2C430B130079190D /* Pairing+CoreDataProperties.swift in Sources */,
+				EFA23ACB2C430B130079190D /* Flight+CoreDataClass.swift in Sources */,
+				EFA23ACE2C4317440079190D /* LogbookView.swift in Sources */,
+				EFA23ACC2C430B130079190D /* Flight+CoreDataProperties.swift in Sources */,
+				EFA23AD02C4317C20079190D /* AddPairingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

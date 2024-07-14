@@ -10,16 +10,11 @@ import CoreData
 
 struct AddPairingView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @Binding var showingAddPairingView: Bool
 
     @State private var date: Date = Date()
     @State private var flightNumbers: String = ""
     @State private var aircraftID: String = ""
-
-    private var pairings: FetchedResults<Pairing>
-    
-    init(pairings: FetchedResults<Pairing>) {
-            self.pairings = pairings
-        }
 
     var body: some View {
         NavigationView {
@@ -27,20 +22,31 @@ struct AddPairingView: View {
                 Section(header: Text("Pairing Details")) {
                     DatePicker("Date", selection: $date, displayedComponents: .date)
                     TextField("Flight Numbers (separated by space)", text: $flightNumbers)
+                        .onChange(of: flightNumbers) { _ in
+                            self.updateFlights()
+                        }
                 }
+                
                 Section(header: Text("Flight Details")) {
-                    ForEach(pairings, id: \.self) { pairing in
-                        Text(pairing.flightNumbers ?? "")
+                    ForEach(flightNumbers.split(separator: " "), id: \.self) { flightNumber in
+                        Text("Flight: \(flightNumber)")
                     }
                 }
+
                 Section {
-                    Button(action: addPairing) {
+                    Button(action: {
+                        addPairing()
+                    }) {
                         Text("Add Pairing")
                     }
                 }
             }
             .navigationTitle("Add Pairing")
         }
+    }
+
+    private func updateFlights() {
+        // Additional logic to dynamically update flight details if needed.
     }
 
     private func addPairing() {
@@ -60,6 +66,9 @@ struct AddPairingView: View {
 
         do {
             try viewContext.save()
+            // Clear the flight numbers and close the sheet
+            flightNumbers = ""
+            showingAddPairingView = false
         } catch {
             let nsError = error as NSError
             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")

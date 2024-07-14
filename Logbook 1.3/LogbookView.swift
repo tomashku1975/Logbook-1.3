@@ -11,40 +11,45 @@ import CoreData
 struct LogbookView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(
-        entity: Pairing.entity(),
-        sortDescriptors: [NSSortDescriptor(keyPath: \Pairing.date, ascending: true)]
-    ) private var pairings: FetchedResults<Pairing>
+        entity: Flight.entity(),
+        sortDescriptors: [NSSortDescriptor(keyPath: \Flight.date, ascending: true)]
+    ) private var flights: FetchedResults<Flight>
 
     @State private var showingAddPairingView = false
 
     var body: some View {
         NavigationView {
             List {
-                ForEach(pairings, id: \.id) { pairing in
-                    Text(pairing.flightNumbers ?? "")
+                ForEach(flights, id: \.id) { flight in
+                    FlightRowView(flight: flight)
                 }
-                .onDelete(perform: deletePairings)
+                .onDelete(perform: deleteFlights)
             }
             .navigationTitle("Logbook")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading){
+                    EditButton()
+                }
+            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
                         showingAddPairingView.toggle()
                     }) {
-                        Label("Add Pairing", systemImage: "plus")
+                        Label("Add Flight", systemImage: "plus")
                     }
                 }
             }
             .sheet(isPresented: $showingAddPairingView) {
-                AddPairingView(pairings: pairings)
+                AddPairingView(showingAddPairingView: $showingAddPairingView)
                     .environment(\.managedObjectContext, viewContext)
             }
         }
     }
 
-    private func deletePairings(offsets: IndexSet) {
+    private func deleteFlights(offsets: IndexSet) {
         withAnimation {
-            offsets.map { pairings[$0] }.forEach(viewContext.delete)
+            offsets.map { flights[$0] }.forEach(viewContext.delete)
 
             do {
                 try viewContext.save()
@@ -56,12 +61,17 @@ struct LogbookView: View {
     }
 }
 
+struct FlightRowView: View {
+    var flight: Flight
 
-
-
-
-private let dateFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    return formatter
-}()
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(flight.flightNumber ?? "Unknown Flight")
+                .font(.headline)
+            Text(flight.date ?? Date(), style: .date)
+                .font(.subheadline)
+            Text("Aircraft: \(flight.aircraftID ?? "N/A")")
+                .font(.subheadline)
+        }
+    }
+}
