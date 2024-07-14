@@ -12,7 +12,7 @@ struct LogbookView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(
         entity: Flight.entity(),
-        sortDescriptors: [NSSortDescriptor(keyPath: \Flight.date, ascending: true)]
+        sortDescriptors: [NSSortDescriptor(keyPath: \Flight.date, ascending: false)]
     ) private var flights: FetchedResults<Flight>
 
     @State private var showingAddPairingView = false
